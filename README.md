@@ -3,6 +3,6 @@ A Flask application with plotly that demonstrates two projectiles sprung at diff
 + Run `git clone https://github.com/asec22/projectiledemo.git`
 + Run `pip install -r requirments*.txt`
 + Run `python app.py`
-+ Click over to (http://localhost:5000)[http://localhost:5000 target=_blank]
++ Click over to (http://localhost:5000)[http://localhost:5000]
 
 The demonstration is deployed at (https://app.lifespectralsurvey.com/projectiledemo)[https://app.lifespectralsurvey.com/projectiledemo]. Have fun!
