@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css')}}">
+<title>Projectile Demonstration</title>
+</head>
+<body>
+    <table>
+    <tr>
+    <th colspan="2"><h1>Projectile Motion Demonstration</h1>    
+        <h2>Enter the properties of the projectile!</h2>
+    </th>    
+    <tr>
+    <td>
+    {% block nav %}    
+    <table>
+    <form action="{{url_for("demo")}}" method="post">
+		<div class="form-group">
+        <tr>
+            <td><label for="Angle">Angle (degrees))</label></td>
+            <td><input type="text" id="Angle" name="angle" placeholder="Enter the angle."></td>
+        </tr>
+        <tr>    
+            <td><label for="Velocity">Velocity (m/s)</label></td>
+            <td><input type="text" id="Velocity" name="velocity" placeholder="Enter the velocity."></td>
+        </tr>
+        <tr>    
+            <td><label for="InitialX">Initial X position (m)</label></td>
+            <td><input type="text" id="IntialX" name="xint" placeholder="Enter the initial x position."></td>
+        </tr>
+        <tr>    
+            <td><label for="InitialY">Initial Y position(m)</label></td> 
+            <td><input type="text" id="InitialY" name="yint" placeholder="Enter the initial y position."></td>
+        </tr>
+		</div>
+        <tr>
+		<td><button class=green type="submit">Submit</button><button class=green type="reset">Reset</button>
+    <td>
+        </tr>    
+	</form>
+        <tr>
+            <td>{% block submit %}{% endblock %}</td>
+        </tr>
+    </table>
+    {% endblock %}    
+        </td>
+       <td>
+     {% block content %}{% endblock %}  
+        </td>
+        </tr>
+      <tr>
+          <td colspan="2"> <p> This demonstration shows the projectile motion of object launched at from a position (<math><mrow><msub><mi>x</mi><mi>o</mi></msub><mo>,</mo><msub><mi>y</mi><mi>o</mi></msub></mrow></math>) with initial velocity (<math><mrow><msub><mi>v</mi><mi>o</mi></msub></mrow></math>) at an angle (<math><mi>&theta;</mi></math>). Here are the <a href= "{{url_for('static', filename='projectilemotion.pdf')}}">equations</a> we use for this demonstration.</p>
+          </td>
+        </tr>
+    </table>    
+</body>
+</html>

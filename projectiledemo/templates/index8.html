@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+{% extends 'base2.html' %}
+
+{% block nav %}
+<table>
+    <form action="{{url_for('demo')}}" method="post">
+		<div class="form-group">
+        <tr>
+            <td><label for="Angle">Angle for the each projctile (degrees))</label></td>
+            <td><input type="text" id="Angle" name="angle1" placeholder="Enter the angle one.">
+                <input type="text" id="Angle" name="angle2" placeholder="Enter the angle two."></td>
+        </tr>
+        <tr>    
+            <td><label for="Velocity">Velocity for each projectile (m/s)</label></td>
+            <td><input type="text" id="Velocity" name="velocity1" placeholder="Enter the velocity one.">
+                <input type="text" id="Velocity" name="velocity2" placeholder="Enter the velocity two."></td>
+        </tr>
+        <tr>    
+            <td><label for="InitialX">Initial X position for each projectile (m)</label></td>
+            <td><input type="text" id="IntialX" name="xint1" placeholder="Enter the initial x position one.">
+                <input type="text" id="IntialX" name="xint2" placeholder="Enter the initial x position two."></td>
+        </tr>
+        <tr>    
+            <td><label for="InitialY">Initial Y position for each projectile (m)</label></td> 
+            <td><input type="text" id="InitialY" name="yint1" placeholder="Enter the initial y position one.">
+                <input type="text" id="InitialY" name="yint2" placeholder="Enter the initial y position two."></td>
+        </tr>
+		</div>
+        <tr>
+		<td><button class=green type="submit">Submit</button><button class=green type="reset">Reset</button>
+    <td>
+        </tr>    
+	</form>
+    </table>
+
+{% endblock %}
+
+{% block content %}
+
+<p>Enter the initial conditions to compare two projectiles in motion.</p>
+
+{% endblock %}
+

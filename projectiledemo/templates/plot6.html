@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+
+{%block content %}
+    <h3>Your Projectile!</h3>
+    <div id="plot-container">
+        <img id="plot-image" src="{{ fig }}" alt="Plot">
+    </div>
+
+    <label for="frame-slider">Frame:</label>
+    <input type="range" id="frame-slider" min="0" max="num" value="0" oninput="updateSlider(this.value)">
+    <p>Frame: <span id="frame-value">0</span></p>
+
+    <button onclick="startAnimation()">Play</button>
+    <button onclick="stopAnimation()">Stop</button>
+    <button onclick="resetAnimation()">Reset</button>
+    <button onclick="saveFig()">Save Fig</button>
+$
+    <script>
+        var frame = 0;
+        var intervalId;
+
+        function startAnimation() {
+            intervalId = setInterval(function() {
+                updateSlider(frame);
+                frame += 1;
+                document.getElementById('plot-image').src = `{{url_for('update_plot($(frame)))}}';
+            }, 1000);
+        }
+
+        function stopAnimation() {
+            clearInterval(intervalId);
+        }
+
+        function resetAnimation() {
+            frame = 0;
+            document.getElementById('plot-image').src = {{url_for('update_plot($(frame)))}}
+        }
+
+        function saveFig() {
+            var link = document.createElement('a');
+            link.href = `/save_fig?frame=${frame}`;
+            link.download = `figure_frame_${frame}.png`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Manually set the slider value to match the saved frame
+            document.getElementById('frame-slider').value = frame;
+            document.getElementById('frame-value').innerText = frame;
+        }
+
+        function updateSlider(value) {
+            frame = parseInt(value);
+            document.getElementById('frame-slider').value = frame;
+            document.getElementById('frame-value').innerText = frame;
+        }
+    </script>
+{% endblock %}

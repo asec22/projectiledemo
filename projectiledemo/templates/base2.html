@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css')}}">
+<title>Projectile Demonstration</title>
+</head>
+<body>
+    <table>
+    <tr>
+    <th colspan="2"><h1>Projectile Motion Demonstration</h1>    
+        <h2>Enter the properties of the projectile!</h2>
+    </th>    
+    <tr>
+    <td>
+    {% block nav %}    
+    {% endblock %}    
+        </td>
+       <td>
+     {% block content %}{% endblock %}  
+        </td>
+        </tr>
+      <tr>
+          <td colspan="2"> <p> This demonstration shows the projectile motion of two objects launched at from a positions ((<math><mrow><msub><mi>x</mi><mi>o1</mi></msub><mo>,</mo><msub><mi>y</mi><mi>o1</mi></msub></mrow></math>),(<math><mrow><msub><mi>x</mi><mi>o2</mi></msub><mo>,</mo><msub><mi>y</mi><mi>o2</mi></msub></mrow></math>)) with initial velocities (<math><mrow><msub><mi>v</mi><mi>o1</mi></msub></mrow></math>,<math><mrow><msub><mi>v</mi><mi>o2</mi></msub></mrow></math>) at an angles (<math><mrow><msub><mi>&theta;</mi><mi>o1</mi></msub></mrow></math>,<math><mrow><msub><mi>&theta;</mi><mi>o2</mi></msub></mrow></math>). Here are the <a href= "{{url_for('static', filename='projectilemotion.pdf')}}" target=_blank>equations</a> we use for this demonstration.</p>
+          </td>
+        </tr>
+    </table>    
+</body>
+</html>

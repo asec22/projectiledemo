@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+{% extends 'base2.html' %}
+
+{%block content %}
+<iframe src="{{url_for('static',filename='projectile2.html')}}" width=1200px height=600px></iframe>
+<br>
+<form action="{{url_for('index')}}" method="POST">
+                        <button type="submit" class='green'>Reset Plot</button>
+                        </form>    
+{% endblock %}
